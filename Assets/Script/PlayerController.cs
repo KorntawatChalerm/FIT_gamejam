@@ -23,10 +23,10 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
 
         //jump
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 0.01)
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 1)
         {
 
-            rb.AddForce(new Vector2(0, jumpforce));
+            rb.AddForce(new Vector2(0, jumpforce*1000));
 
         }
     }
