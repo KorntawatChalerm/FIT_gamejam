@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -18,6 +16,8 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        GameManager.key.Add(1);
+
         //disappear when touched
         Destroy(this.gameObject);
     }

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager instance;
+
+    public static GameManager instance;
+
     public GameObject deadUI;
     public GameObject passUI;
 
-    public int requiredkey;
+    public static int requiredkey;
 
-    public List<GameObject> key;
+    public static List<int> key = new List<int>();
 
 
     private void Awake()
@@ -28,22 +30,20 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        requiredkey = 2;
     }
 
     void Update()
     {
-        if (requiredkey == key.Count)
-        {
-            pass();
-        }
+       // Debug.Log(key.Count);
+       
     }
-    void dead()
+    public void dead()
     {
         deadUI.SetActive(true);
         Time.timeScale = 0f;
     }
-    void pass()
+    public void  pass()
     {
         passUI.SetActive(true);
         Time.timeScale = 0f;

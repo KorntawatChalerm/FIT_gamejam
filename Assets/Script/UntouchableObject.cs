@@ -18,5 +18,7 @@ public class UntouchableObject : MonoBehaviour
     {
         //touch and boom die
         collision.gameObject.SetActive(false);
+        GameManager.instance.dead();
+        
     }
 }
