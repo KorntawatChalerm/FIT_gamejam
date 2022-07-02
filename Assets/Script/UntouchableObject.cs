@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class UntouchableObject : MonoBehaviour
 {
+
     public GameObject player;
+    public GameManager gameManager;
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -17,8 +19,8 @@ public class UntouchableObject : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         //touch and boom die
-        collision.gameObject.SetActive(false);
-        GameManager.instance.dead();
-        
+        // collision.gameObject.SetActive(false);
+        Vector3 tmp = gameManager.spawnPos.position ;
+        collision.gameObject.transform.position = tmp;
     }
 }

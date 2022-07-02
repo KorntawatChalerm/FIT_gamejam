@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public GameObject deadUI;
+    public GameObject pauseUI;
     public GameObject passUI;
-
+    public Transform spawnPos;
     public static int requiredkey;
 
     public static List<int> key = new List<int>();
@@ -17,15 +17,17 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+          if (instance == null)
+          {
+              instance = this;
+          }
+          else if (instance != this)
+          {
+              Destroy(gameObject);
+          }
+          DontDestroyOnLoad(gameObject);
+
+        SetSpawnPos(spawnPos.position);
 
     }
     void Start()
@@ -35,12 +37,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-       // Debug.Log(key.Count);
+        // Debug.Log(key.Count);
        
     }
-    public void dead()
+    public void pause()
     {
-        deadUI.SetActive(true);
+        pauseUI.SetActive(true);
         Time.timeScale = 0f;
     }
     public void  pass()
@@ -48,5 +50,10 @@ public class GameManager : MonoBehaviour
         passUI.SetActive(true);
         Time.timeScale = 0f;
 
+    }
+
+    public void SetSpawnPos(Vector3 pos)
+    {
+        spawnPos.position = pos;
     }
 }
