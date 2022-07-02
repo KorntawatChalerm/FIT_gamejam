@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody2D rb2d;
+    Rigidbody rb;
     [SerializeField]
     private float speed = 10f;
     [SerializeField]
@@ -17,14 +17,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //moving horizontal
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(moveHorizontal,0);
-        rb2d.AddForce(movement * speed);
+        rb.AddForce(movement * speed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        //jump
+        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 0.01)
         {
 
-            rb2d.AddForce(new Vector2(0, jumpforce));
+            rb.AddForce(new Vector2(0, jumpforce));
 
         }
     }
