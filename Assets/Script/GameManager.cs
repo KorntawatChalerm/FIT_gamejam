@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     
+    public bool ispause ;
     public Text timerUI;
     public GameObject pauseUI;
     public GameObject passUI;
@@ -41,17 +42,33 @@ public class GameManager : MonoBehaviour
     {
         requiredkey = 2;
         StartCoroutine(countdown());
+        ispause = false;
     }
 
     void Update()
     {
        timerUI.text = "Time : "+ timercount.ToString();
+       
+    
+       if ((Input.GetKeyDown("escape")) && ispause == false ){
+        Debug.Log("pasuuuu");
+        pause();
+       }else if ((Input.GetKeyDown("escape")) && ispause == true) {
+        Debug.Log("resu");
+        resume();
+       }
     }
    
     public void pause()
     {
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
+        ispause = true;
+    }
+    public void resume(){
+        pauseUI.SetActive(false);
+            Time.timeScale = 1f;
+        ispause = false;
     }
     public void  pass()
     {
