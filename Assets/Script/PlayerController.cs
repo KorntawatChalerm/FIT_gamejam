@@ -10,25 +10,51 @@ public class PlayerController : MonoBehaviour
     private float speed = 10f;
     [SerializeField]
     private float jumpforce = 10f;
+
+    bool onladder = false;
+
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+     //   rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         //moving horizontal
-        /*float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveHorizontal * speed,rb.velocity.y);*/
-        var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * speed;
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveHorizontal * speed,rb.velocity.y);
+       /* var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
 
+        transform.position +=  new Vector3(horizontal, 0) * Time.deltaTime * speed;*/
 
         //jump
-        if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 1)
+        if (Input.GetKeyDown("w") &&  Mathf.Abs(rb.velocity.y) <= 1 && onladder==false)
         {
 
             rb.AddForce(new Vector2(0, jumpforce*1000));
+
         }
+       
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ladder"))
+        {
+            Debug.Log("ladder");
+            onladder = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("ladder"))
+        {
+            Debug.Log("ladderoff");
+            onladder = false;
+
+        }
+
+
     }
 }
