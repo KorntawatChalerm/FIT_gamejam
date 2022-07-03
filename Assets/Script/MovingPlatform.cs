@@ -7,8 +7,7 @@ public class MovingPlatform : MonoBehaviour
     public Transform pos1,pos2;
     public float speed;
     public Transform startpos;
-    public GameObject player;
-
+   
     Vector3 nextpos;
     void Start()
     {
@@ -25,21 +24,5 @@ public class MovingPlatform : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position,nextpos,speed * Time.deltaTime);
     }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("player"))
-        {
-           player.transform.parent = collision.gameObject.transform;
-           }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("player"))
-        {
-            player.transform.parent = null ;
-
-        }
-
-
-    }
+   
 }
