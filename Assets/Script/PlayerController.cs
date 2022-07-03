@@ -30,13 +30,19 @@ public class PlayerController : MonoBehaviour
         transform.position +=  new Vector3(horizontal, 0) * Time.deltaTime * speed;*/
 
         //jump
-        if (Input.GetKeyDown("w") &&  Mathf.Abs(rb.velocity.y) <= 1 && onladder==false)
+        if (Input.GetKeyDown("w") &&  Mathf.Abs(rb.velocity.y) <= 0.3 && onladder==false)
         {
 
             rb.AddForce(new Vector2(0, jumpforce*1000));
 
         }
-       
+       if (Input.GetKey("w") && onladder)
+        {
+            Debug.Log("climbing");
+            rb.velocity = new Vector2(0,5);
+
+           // rb.AddForce(new Vector2(0, 20));
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
