@@ -7,9 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Rigidbody rb;
     [SerializeField]
-    private float speed = 3f;
+    private float speed = 10f;
+    
     [SerializeField]
-    private float jumpforce = 0.4f;
+    private float jumpforce = 10f;
+
+    [SerializeField]
+    private float forceDrop = 0f;
 
     bool onladder = false;
 
@@ -22,18 +26,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //moving horizontal
-        if (Input.GetKey("a"))
-        rb.velocity = new Vector2(-1 * speed, rb.velocity.y);
-        
-        if (Input.GetKey("d"))
-        rb.velocity = new Vector2(1 * speed, rb.velocity.y);
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveHorizontal * speed,rb.velocity.y);
+       /* var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+
+        transform.position +=  new Vector3(horizontal, 0) * Time.deltaTime * speed;*/
 
         //jump
-        if (Input.GetKeyDown("w") &&  Mathf.Abs(rb.velocity.y) <= 0.3 && onladder==false)
+        if (Input.GetKeyDown("w") &&  Mathf.Abs(rb.velocity.y) <= 1 && onladder==false)
         {
 
             rb.AddForce(new Vector2(0, jumpforce*1000));
+            
 
+        }
+        if(rb.velocity.y >= 5)
+        {
+            Physics.gravity = new Vector3(0, forceDrop, 0);
         }
        if (Input.GetKey("w") && onladder)
         {
@@ -42,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
            // rb.AddForce(new Vector2(0, 20));
         }
+
+        Debug.Log(rb.velocity);
     }
     private void OnTriggerEnter(Collider other)
     {
