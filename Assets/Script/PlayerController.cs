@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float forceDrop = 0f;
 
     bool onladder = false;
+    bool facingRight = false;
 
 
     void Start()
@@ -50,10 +51,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("climbing");
             rb.velocity = new Vector2(0,5);
 
-           // rb.AddForce(new Vector2(0, 20));
+        }
+         //animation
+        if ((rb.velocity.x > 0) && !facingRight){
+            flip();
+        }else if((rb.velocity.x < 0) && facingRight){
+            flip();
         }
 
-        Debug.Log(rb.velocity);
+       // Debug.Log(rb.velocity);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -73,5 +79,9 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+    void flip(){
+        facingRight = !facingRight;
+        transform.Rotate(0f,180f,0f);
     }
 }

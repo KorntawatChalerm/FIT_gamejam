@@ -15,7 +15,7 @@ public class SceneManage : MonoBehaviour
     }
 
     public void MainMenu(){
-        SceneManager.LoadScene("dsa");
+        SceneManager.LoadScene("MainMenu");
     }
     public void Exit(){
         Application.Quit();
