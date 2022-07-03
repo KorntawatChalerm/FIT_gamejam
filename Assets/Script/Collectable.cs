@@ -16,9 +16,12 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        GameManager.key.Add(1);
+        if (collision.CompareTag("player"))
+        {
+            GameManager.key.Add(1);
 
-        //disappear when touched
-        Destroy(this.gameObject);
+            //disappear when touched
+            Destroy(this.gameObject);
+        }
     }
 }

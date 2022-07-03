@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.key.Count == GameManager.requiredkey)
+        if ((GameManager.key.Count == GameManager.requiredkey) && other.CompareTag("player"))
         {
             Debug.Log(other.name);
             GameManager.instance.pass();
