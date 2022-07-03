@@ -7,9 +7,9 @@ public class Player2Controller : MonoBehaviour
     [SerializeField]
     Rigidbody rb;
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 3f;
     [SerializeField]
-    private float jumpforce = 10f;
+    private float jumpforce = 0.4f;
 
     bool onladder = false;
 
@@ -22,12 +22,11 @@ public class Player2Controller : MonoBehaviour
     void Update()
     {
         //moving horizontal
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveHorizontal * speed, rb.velocity.y);
-        /* var horizontal = Input.GetAxis("Horizontal");
-         var vertical = Input.GetAxis("Vertical");
-
-         transform.position +=  new Vector3(horizontal, 0) * Time.deltaTime * speed;*/
+        if (Input.GetKey("left"))
+        rb.velocity = new Vector2(-1 * speed, rb.velocity.y);
+        
+        if (Input.GetKey("right"))
+        rb.velocity = new Vector2(1 * speed, rb.velocity.y);
 
         //jump
         if (Input.GetKeyDown("up") && Mathf.Abs(rb.velocity.y) <= 0.3 && onladder == false)

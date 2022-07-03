@@ -5,7 +5,7 @@ using UnityEngine;
 public class UntouchableObject : MonoBehaviour
 {
 
-    public GameObject player;
+   // public GameObject player;
    // public GameManager gameManager;
     void Start()
     {
