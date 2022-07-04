@@ -1442,6 +1442,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Canvas '
       objectReference: {fileID: 0}
+    - target: {fileID: 5497982125818664461, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 313426741}
+    - target: {fileID: 5497982125818664461, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497982127112017609, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 313426741}
+    - target: {fileID: 5497982127112017609, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5711680812392140184, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1449,6 +1465,14 @@ PrefabInstance:
     - target: {fileID: 5711680812392140184, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: End
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380396429375319610, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 313426741}
+    - target: {fileID: 7380396429375319610, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: retry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea352ad4c5f18e04b98a46d843f6f58e, type: 3}

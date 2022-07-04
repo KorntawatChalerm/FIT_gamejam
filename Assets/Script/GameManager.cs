@@ -36,13 +36,16 @@ public class GameManager : MonoBehaviour
           //DontDestroyOnLoad(gameObject);
 
         SetSpawnPos(spawnPos.position);
+        ispause = false;
+        Time.timeScale = 1f;
+
 
     }
     void Start()
     {
         requiredkey = 2;
         StartCoroutine(countdown());
-        ispause = false;
+        
     }
 
     void Update()
