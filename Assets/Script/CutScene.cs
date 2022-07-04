@@ -9,4 +9,9 @@ public class CutScene : MonoBehaviour
     {
         SceneManager.LoadScene("Map01");
     }
+
+    public void SceneEnd()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
