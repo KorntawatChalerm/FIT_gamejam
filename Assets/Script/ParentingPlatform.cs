@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ParentingPlatform : MonoBehaviour
 {
-     public GameObject player;
 
     void Start()
     {

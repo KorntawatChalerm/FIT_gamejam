@@ -23,7 +23,23 @@ public class SceneManage : MonoBehaviour
     public void StartGame(){
         SceneManager.LoadScene("blabal");
     }
-    public void LoadNextScene(){
-        SceneManager.LoadScene("vd");
+    public void retry(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void CutScene(){
+        SceneManager.LoadScene("CutScene_prologe");
+        
+    }
+    public void Map1(){
+        SceneManager.LoadScene("Map01");
+    }
+    public void Map2(){
+        SceneManager.LoadScene("Map02");
+    }
+    public void Map3(){
+        SceneManager.LoadScene("Map03_Prototype");
+    }
+    public void End(){
+        SceneManager.LoadScene("CutScene_End");
     }
 }

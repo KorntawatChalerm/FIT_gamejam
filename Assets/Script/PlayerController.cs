@@ -29,13 +29,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //moving horizontal
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveHorizontal * speed,rb.velocity.y);
-       /* var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
-
-        transform.position +=  new Vector3(horizontal, 0) * Time.deltaTime * speed;*/
-
+        if (Input.GetKey("a"))
+        rb.velocity = new Vector2(-1 * speed, rb.velocity.y);
+        
+        if (Input.GetKey("d"))
+        rb.velocity = new Vector2(1 * speed, rb.velocity.y);
         //jump
         if (Input.GetKeyDown("w") &&  Mathf.Abs(rb.velocity.y) <= 1 && onladder==false)
         {

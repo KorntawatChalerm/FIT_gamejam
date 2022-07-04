@@ -14,11 +14,12 @@ public class Player2Controller : MonoBehaviour
     private float forceDrop = 0f;
     bool onladder = false;
     bool facingRight = false;
+     Animator anim ;
 
 
     void Start()
     {
-        //   rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -49,6 +50,10 @@ public class Player2Controller : MonoBehaviour
         }
 
         //animation
+        if(rb.velocity.x > 0){
+            anim.SetBool("iswalk", true);
+         }else{
+            anim.SetBool("iswalk", false);}
         if ((rb.velocity.x > 0) && !facingRight){
             flip();
         }else if((rb.velocity.x < 0) && facingRight){

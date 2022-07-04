@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map03_Prototype.unity
     guid: 6cbcf9d74c9370345a7fc08b60fcda7b
+  - enabled: 1
+    path: Assets/Scenes/CutScene_End.unity
+    guid: 7ec56e13bec553a43abecef31ff0198b
   m_configObjects: {}

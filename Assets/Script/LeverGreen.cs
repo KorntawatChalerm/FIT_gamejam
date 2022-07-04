@@ -26,5 +26,7 @@ public class LeverGreen : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         Debug.Log("lever");
         triggered = true;
+        transform.Rotate(0,180,0);
+
     }
 }
