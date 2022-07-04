@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     }
     public void resume(){
         pauseUI.SetActive(false);
-            Time.timeScale = 1f;
+        Time.timeScale = 1f;
         ispause = false;
     }
     public void  pass()

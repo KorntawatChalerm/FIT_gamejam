@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour
     bool onladder = false;
     bool facingRight = false;
 
+    Animator anim ;
+
 
     void Start()
     {
-     //   rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -53,6 +55,12 @@ public class PlayerController : MonoBehaviour
 
         }
          //animation
+         if(rb.velocity.x > 0){
+            anim.SetBool("isWalk", true);
+         }else{
+            anim.SetBool("isWalk", false);
+
+         }
         if ((rb.velocity.x > 0) && !facingRight){
             flip();
         }else if((rb.velocity.x < 0) && facingRight){
